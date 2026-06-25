@@ -1,0 +1,446 @@
+// Version: 4.0.0
+type AccessControlState__836714403 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__222667396<Principal, UserRole__686137147>
+  };
+type ApplicationStatus__458476274 = {#Accepted; #Applied; #Rejected};
+type ApplicationStatus__938853177 = {#Accepted; #Applied; #Rejected};
+type ConnRequest__638198042 =
+  {
+    createdAt : Int;
+    from : Principal;
+    id : Nat;
+    status : ConnStatus__958092689;
+    to : Principal
+  };
+type ConnRequest__686566709 =
+  {
+    createdAt : Int;
+    from : Principal;
+    id : Nat;
+    status : ConnStatus__31662399;
+    to : Principal
+  };
+type ConnStatus__31662399 = {#Accepted; #Declined; #Pending};
+type ConnStatus__958092689 = {#Accepted; #Declined; #Pending};
+type Data__80296667<K, V> =
+  {var count : Nat__1040412405; kvs : [var ?(K, V)]};
+type EducationEntry__212697802 =
+  {degree : Text; field : Text; school : Text; year : Text};
+type EducationEntry__457554792 =
+  {degree : Text; field : Text; school : Text; year : Text};
+type Endorsement__370737015 =
+  {createdAt : Int; endorserPrincipal : Principal; skill : Text};
+type Endorsement__481464788 =
+  {createdAt : Int; endorserPrincipal : Principal; skill : Text};
+type ExternalBlob__365673026 = Blob;
+type GroupPost__225717311 =
+  {
+    authorPrincipal : Principal;
+    body : Text;
+    createdAt : Int;
+    groupId : Nat;
+    id : Nat;
+    likeCount : Nat;
+    postType : PostType__137568890
+  };
+type GroupPost__825614157 =
+  {
+    authorPrincipal : Principal;
+    body : Text;
+    createdAt : Int;
+    groupId : Nat;
+    id : Nat;
+    likeCount : Nat;
+    postType : PostType__490378007
+  };
+type Group__1018216201 =
+  {
+    createdAt : Int;
+    creatorPrincipal : Principal;
+    description : Text;
+    id : Nat;
+    industry : Text;
+    memberCount : Nat;
+    name : Text
+  };
+type Group__135946080 =
+  {
+    createdAt : Int;
+    creatorPrincipal : Principal;
+    description : Text;
+    id : Nat;
+    industry : Text;
+    memberCount : Nat;
+    name : Text
+  };
+type Internal__41346355<K, V> =
+  {children : [var ?Node__1000929467<K, V>]; data : Data__80296667<K, V>};
+type JobApplication__444236288 =
+  {
+    applicantPrincipal : Principal;
+    coverLetter : Text;
+    createdAt : Int;
+    id : Nat;
+    jobId : Nat;
+    resume : ?ExternalBlob__365673026;
+    status : ApplicationStatus__938853177
+  };
+type JobApplication__891311948 =
+  {
+    applicantPrincipal : Principal;
+    coverLetter : Text;
+    createdAt : Int;
+    id : Nat;
+    jobId : Nat;
+    resume : ?ExternalBlob__365673026;
+    status : ApplicationStatus__458476274
+  };
+type JobPosting__695572691 =
+  {
+    active : Bool;
+    company : Text;
+    createdAt : Int;
+    description : Text;
+    experienceLevel : Text;
+    id : Nat;
+    industry : Text;
+    location : Text;
+    posterPrincipal : Principal;
+    requirements : Text;
+    salaryRange : Text;
+    title : Text
+  };
+type JobPosting__80450050 =
+  {
+    active : Bool;
+    company : Text;
+    createdAt : Int;
+    description : Text;
+    experienceLevel : Text;
+    id : Nat;
+    industry : Text;
+    location : Text;
+    posterPrincipal : Principal;
+    requirements : Text;
+    salaryRange : Text;
+    title : Text
+  };
+type Leaf__712614010<K, V> = {data : Data__80296667<K, V>};
+type Map__222667396<K, V> = Map__912772452<K, V>;
+type Map__709709801<K, V> =
+  {var root : Node__1000929467<K, V>; var size : Nat__1040412405};
+type Map__912772452<K, V> = Map__709709801<K, V>;
+type Message__19119041 =
+  {
+    attachment : ?ExternalBlob__365673026;
+    attachmentName : ?Text;
+    body : Text;
+    createdAt : Int;
+    from : Principal;
+    id : Nat;
+    read : Bool;
+    to : Principal
+  };
+type Message__310736636 =
+  {
+    attachment : ?ExternalBlob__365673026;
+    attachmentName : ?Text;
+    body : Text;
+    createdAt : Int;
+    from : Principal;
+    id : Nat;
+    read : Bool;
+    to : Principal
+  };
+type Nat__1040412405 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__1000929467<K, V> =
+  {#internal : Internal__41346355<K, V>; #leaf : Leaf__712614010<K, V>};
+type NotifKind__284960123 =
+  {
+    #ConnectionAccepted;
+    #ConnectionRequest;
+    #GroupPostCreated;
+    #JobApplicationReceived;
+    #NewMessage;
+    #PostCommented;
+    #PostLiked;
+    #SkillEndorsed
+  };
+type NotifKind__383137576 =
+  {
+    #ConnectionAccepted;
+    #ConnectionRequest;
+    #GroupPostCreated;
+    #JobApplicationReceived;
+    #NewMessage;
+    #PostCommented;
+    #PostLiked;
+    #SkillEndorsed
+  };
+type Notification__73044690 =
+  {
+    createdAt : Int;
+    id : Nat;
+    kind : NotifKind__284960123;
+    message : Text;
+    read : Bool;
+    recipientPrincipal : Principal;
+    referenceId : Nat
+  };
+type Notification__879889657 =
+  {
+    createdAt : Int;
+    id : Nat;
+    kind : NotifKind__383137576;
+    message : Text;
+    read : Bool;
+    recipientPrincipal : Principal;
+    referenceId : Nat
+  };
+type PostComment__149515686 =
+  {
+    authorPrincipal : Principal;
+    body : Text;
+    createdAt : Int;
+    id : Nat;
+    postId : Nat
+  };
+type PostComment__185346645 =
+  {
+    authorPrincipal : Principal;
+    body : Text;
+    createdAt : Int;
+    id : Nat;
+    postId : Nat
+  };
+type PostType__137568890 = {#Article; #Insight; #Question};
+type PostType__490378007 = {#Article; #Insight; #Question};
+type ProfileVisibility__584677636 = {#ConnectionsOnly; #Public};
+type ProfileVisibility__917805579 = {#ConnectionsOnly; #Public};
+type Profile__340690988 =
+  {
+    avatar : ?ExternalBlob__365673026;
+    bio : Text;
+    createdAt : Int;
+    education : [EducationEntry__212697802];
+    headline : Text;
+    industry : Text;
+    location : Text;
+    name : Text;
+    profileVisibility : ProfileVisibility__584677636;
+    resume : ?ExternalBlob__365673026;
+    skills : [Text];
+    workHistory : [WorkEntry__782518821]
+  };
+type Profile__544827657 =
+  {
+    avatar : ?ExternalBlob__365673026;
+    bio : Text;
+    createdAt : Int;
+    education : [EducationEntry__457554792];
+    headline : Text;
+    industry : Text;
+    location : Text;
+    name : Text;
+    profileVisibility : ProfileVisibility__917805579;
+    resume : ?ExternalBlob__365673026;
+    skills : [Text];
+    workHistory : [WorkEntry__810533224]
+  };
+type UserRole__686137147 = {#admin; #guest; #user};
+type WorkEntry__782518821 =
+  {
+    company : Text;
+    description : Text;
+    endYear : Text;
+    startYear : Text;
+    title : Text
+  };
+type WorkEntry__810533224 =
+  {
+    company : Text;
+    description : Text;
+    endYear : Text;
+    startYear : Text;
+    title : Text
+  };
+{
+  "20250101_000000_Init" :
+    {} ->
+      {
+        accessControlState : AccessControlState__836714403;
+        blockedUsers :
+          Map__222667396<Principal, Map__222667396<Principal, Bool>>;
+        connRequests : Map__222667396<Nat, ConnRequest__686566709>;
+        groupMembers : Map__222667396<Nat, Map__222667396<Principal, Bool>>;
+        groupMemberships :
+          Map__222667396<Principal, Map__222667396<Nat, Bool>>;
+        groupPostIndex : Map__222667396<Nat, Map__222667396<Nat, Bool>>;
+        groupPosts : Map__222667396<Nat, GroupPost__225717311>;
+        groups : Map__222667396<Nat, Group__1018216201>;
+        jobApplicantIndex : Map__222667396<Nat, Map__222667396<Nat, Bool>>;
+        jobApplications : Map__222667396<Nat, JobApplication__891311948>;
+        jobPostings : Map__222667396<Nat, JobPosting__695572691>;
+        messages : Map__222667396<Nat, Message__310736636>;
+        var nextApplicationId : Nat;
+        var nextCommentId : Nat;
+        var nextConnRequestId : Nat;
+        var nextGroupId : Nat;
+        var nextJobId : Nat;
+        var nextMsgId : Nat;
+        var nextNotifId : Nat;
+        var nextPostId : Nat;
+        postCommentIndex : Map__222667396<Nat, Map__222667396<Nat, Bool>>;
+        postComments : Map__222667396<Nat, PostComment__185346645>;
+        postLikes : Map__222667396<Nat, Map__222667396<Principal, Bool>>;
+        userApplicationsIndex :
+          Map__222667396<Principal, Map__222667396<Nat, Bool>>;
+        userConnections :
+          Map__222667396<Principal, Map__222667396<Principal, Bool>>;
+        userEndorsements :
+          Map__222667396<Principal, [Endorsement__370737015]>;
+        userIncomingRequests :
+          Map__222667396<Principal, Map__222667396<Nat, Bool>>;
+        userMsgIndex :
+          Map__222667396<Principal,
+                          Map__222667396<Principal, Map__222667396<Nat, Bool>>>;
+        userNotifications :
+          Map__222667396<Principal,
+                          Map__222667396<Nat, Notification__73044690>>;
+        userOutgoingRequests :
+          Map__222667396<Principal, Map__222667396<Nat, Bool>>;
+        userProfiles : Map__222667396<Principal, Profile__544827657>
+      }
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__222667396<Principal, UserRole__686137147>
+    };
+  stable blockedUsers :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Principal, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable connRequests :
+    {
+      var root : Node__1000929467<Nat, ConnRequest__638198042>;
+      var size : Nat__1040412405
+    };
+  stable groupMembers :
+    {
+      var root : Node__1000929467<Nat, Map__222667396<Principal, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable groupMemberships :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable groupPostIndex :
+    {
+      var root : Node__1000929467<Nat, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable groupPosts :
+    {
+      var root : Node__1000929467<Nat, GroupPost__825614157>;
+      var size : Nat__1040412405
+    };
+  stable groups :
+    {
+      var root : Node__1000929467<Nat, Group__135946080>;
+      var size : Nat__1040412405
+    };
+  stable jobApplicantIndex :
+    {
+      var root : Node__1000929467<Nat, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable jobApplications :
+    {
+      var root : Node__1000929467<Nat, JobApplication__444236288>;
+      var size : Nat__1040412405
+    };
+  stable jobPostings :
+    {
+      var root : Node__1000929467<Nat, JobPosting__80450050>;
+      var size : Nat__1040412405
+    };
+  stable messages :
+    {
+      var root : Node__1000929467<Nat, Message__19119041>;
+      var size : Nat__1040412405
+    };
+  stable var nextApplicationId : Nat;
+  stable var nextCommentId : Nat;
+  stable var nextConnRequestId : Nat;
+  stable var nextGroupId : Nat;
+  stable var nextJobId : Nat;
+  stable var nextMsgId : Nat;
+  stable var nextNotifId : Nat;
+  stable var nextPostId : Nat;
+  stable postCommentIndex :
+    {
+      var root : Node__1000929467<Nat, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable postComments :
+    {
+      var root : Node__1000929467<Nat, PostComment__149515686>;
+      var size : Nat__1040412405
+    };
+  stable postLikes :
+    {
+      var root : Node__1000929467<Nat, Map__222667396<Principal, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable userApplicationsIndex :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable userConnections :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Principal, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable userEndorsements :
+    {
+      var root : Node__1000929467<Principal, [Endorsement__481464788]>;
+      var size : Nat__1040412405
+    };
+  stable userIncomingRequests :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable userMsgIndex :
+    {
+      var root :
+        Node__1000929467<Principal,
+                          Map__222667396<Principal, Map__222667396<Nat, Bool>>>;
+      var size : Nat__1040412405
+    };
+  stable userNotifications :
+    {
+      var root :
+        Node__1000929467<Principal,
+                          Map__222667396<Nat, Notification__879889657>>;
+      var size : Nat__1040412405
+    };
+  stable userOutgoingRequests :
+    {
+      var root : Node__1000929467<Principal, Map__222667396<Nat, Bool>>;
+      var size : Nat__1040412405
+    };
+  stable userProfiles :
+    {
+      var root : Node__1000929467<Principal, Profile__340690988>;
+      var size : Nat__1040412405
+    }
+};
